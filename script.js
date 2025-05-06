@@ -1,30 +1,27 @@
-window.onload = () => {
-    function toggleMenu() {
-        const menu = document.getElementById('mobileMenu');
-        const hamburger = document.querySelector('.hamburger');
-        const isOpen = menu.classList.toggle('show');
-        hamburger.textContent = isOpen ? '✕' : '☰';
+function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    const isOpen = menu.classList.toggle('show');
+    hamburger.textContent = isOpen ? '✕' : '☰';
 
-        document.body.classList.toggle('no-scroll', isOpen);
-    }
+    document.body.classList.toggle('no-scroll', isOpen);
+}
 
-    window.addEventListener('DOMContentLoaded', () => {
-        const menu = document.getElementById('mobileMenu');
-        const links = menu.querySelectorAll('a');
-        const hamburger = document.querySelector('.hamburger');
+window.addEventListener('DOMContentLoaded', () => {
+    const menu = document.getElementById('mobileMenu');
+    const links = menu.querySelectorAll('a');
+    const hamburger = document.querySelector('.hamburger');
 
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.remove('show');
-                hamburger.textContent = '☰';
-                document.body.classList.remove('no-scroll');
-            });
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('show');
+            hamburger.textContent = '☰';
+            document.body.classList.remove('no-scroll');
         });
-    })
+    });
+})
 
-
-
-
+window.onload = () => {
     if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
         const headline = document.getElementById("headline");
         let textSwitched = false;
@@ -32,10 +29,6 @@ window.onload = () => {
         let startY = 0;
 
         window.scrollTo(0, 0);
-
-        // ⚠️ NÃO bloqueia o scroll via window.scrollTo(0,0) mais
-
-        // Intercepta o wheel (rolagem de mouse)
         window.addEventListener("wheel", (e) => {
             if (animating) return;
 
@@ -48,7 +41,6 @@ window.onload = () => {
             }
         }, { passive: false });
 
-        // Intercepta o touch (mobile)
         window.addEventListener("touchstart", (e) => {
             startY = e.touches[0].clientY;
         }, { passive: false });
