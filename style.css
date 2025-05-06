@@ -88,6 +88,11 @@ nav>p {
     margin: auto;
 }
 
+.about, .services{
+    max-width: 1200px;
+    margin: auto;
+}
+
 .about {
     width: 100%;
     text-align: center;
@@ -174,6 +179,17 @@ button:hover {
 .contact-links{
     display: flex;
     flex-direction: column;
+}
+
+.socials{
+    margin: 10px 0;
+}
+
+.socials img{
+width: 30px;
+border-radius: 50%;
+border: 1px solid black;
+cursor: pointer;
 }
 
 footer {
