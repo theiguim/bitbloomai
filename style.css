@@ -133,12 +133,12 @@ body.no-scroll {
     transition: opacity 0.5s ease;
 }
 
-.main>button {
+.main button {
     background-color: transparent;
     border: 2px solid white;
 }
 
-.main>button:hover {
+.main button:hover {
     background-color: white;
     color: black;
 }
