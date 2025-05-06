@@ -95,9 +95,9 @@ header>nav {
 
 body.no-scroll {
     overflow: hidden;
-  }
+}
 
-.mobile-menu>a{
+.mobile-menu>a {
     margin-bottom: 10px;
     text-decoration: none;
 }
@@ -105,8 +105,8 @@ body.no-scroll {
 .mobile-menu.show {
     top: 0;
     opacity: 1;
-   
-  }
+
+}
 
 .main {
     margin-top: 70px;
@@ -117,6 +117,30 @@ body.no-scroll {
     background-size: cover;
 
     border-radius: 0 0 10px 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 25px;
+}
+
+.main>h1 {
+    max-width: 1000px;
+    color: white;
+    margin-bottom: 30px;
+    transition: opacity 0.5s ease;
+}
+
+.main>button {
+    background-color: transparent;
+    border: 2px solid white;
+}
+
+.main>button:hover {
+    background-color: white;
+    color: black;
 }
 
 .container {
@@ -160,7 +184,7 @@ button:hover {
 
 .services {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     gap: 100px;
 }
@@ -196,6 +220,8 @@ button:hover {
     position: absolute;
     right: 0;
     bottom: 10vh;
+    font-size: 20px;
+    text-decoration: underline;
 }
 
 .contact {
@@ -233,19 +259,25 @@ button:hover {
 
 footer {
     background-color: rgb(20, 20, 20);
-    font-size: 10px;
+    font-size: 13px;
     color: white;
     text-align: center;
     padding: 5px;
 }
 
 /* products page */
-#main-product{
-    height: 50vh;
+#main-product {
+    background: url(images/wp-products.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 10% 20%;
+    height: 80vh;
+    border-radius: 0;
 }
-#container-products>.main{
-}
-#container-products>.products{
+
+#container-products>.main {}
+
+#container-products>.products {
     padding: 10vh 0;
     flex-wrap: wrap;
     gap: 10vh;
@@ -254,25 +286,30 @@ footer {
 
 @media(max-width: 750px) {
 
-    header>nav{
+    header>nav {
         display: none;
-      }
-    
-      .hamburger {
+    }
+
+    .hamburger {
         display: block;
-      }
-    
-      .mobile-menu.show {
+    }
+
+    .mobile-menu.show {
         display: flex;
-      }
+    }
 
     button {
         font-size: 15px;
         padding: 10px;
     }
 
+    .main>h1 {
+       padding: 0 3vw;
+    }
+
     .about {
         padding: 10vh 0;
+        font-size: 18px;
     }
 
     .services {
@@ -298,6 +335,7 @@ footer {
 
     .products>a {
         bottom: 5vh;
+        font-size: 15px;
     }
 
     .contact {

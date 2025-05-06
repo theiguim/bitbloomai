@@ -1,0 +1,94 @@
+window.onload = () => {
+    function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        const hamburger = document.querySelector('.hamburger');
+        const isOpen = menu.classList.toggle('show');
+        hamburger.textContent = isOpen ? '✕' : '☰';
+
+        document.body.classList.toggle('no-scroll', isOpen);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const menu = document.getElementById('mobileMenu');
+        const links = menu.querySelectorAll('a');
+        const hamburger = document.querySelector('.hamburger');
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('show');
+                hamburger.textContent = '☰';
+                document.body.classList.remove('no-scroll');
+            });
+        });
+    })
+
+
+
+
+    if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
+        const headline = document.getElementById("headline");
+        let textSwitched = false;
+        let animating = false;
+        let startY = 0;
+
+        window.scrollTo(0, 0);
+
+        // ⚠️ NÃO bloqueia o scroll via window.scrollTo(0,0) mais
+
+        // Intercepta o wheel (rolagem de mouse)
+        window.addEventListener("wheel", (e) => {
+            if (animating) return;
+
+            if (!textSwitched && e.deltaY > 0 && window.scrollY < 10) {
+                e.preventDefault();
+                animateSwitchText();
+            } else if (textSwitched && e.deltaY < 0 && window.scrollY === 0) {
+                e.preventDefault();
+                animateRevertText();
+            }
+        }, { passive: false });
+
+        // Intercepta o touch (mobile)
+        window.addEventListener("touchstart", (e) => {
+            startY = e.touches[0].clientY;
+        }, { passive: false });
+
+        window.addEventListener("touchmove", (e) => {
+            if (animating) return;
+
+            const currentY = e.touches[0].clientY;
+            const deltaY = startY - currentY;
+
+            if (!textSwitched && deltaY > 20 && window.scrollY < 10) {
+                e.preventDefault();
+                animateSwitchText();
+            } else if (textSwitched && deltaY < -20 && window.scrollY === 0) {
+                e.preventDefault();
+                animateRevertText();
+            }
+        }, { passive: false });
+
+        function animateSwitchText() {
+            animating = true;
+            headline.style.opacity = 0;
+            setTimeout(() => {
+                headline.textContent = "Transformamos ideias em soluções digitais inteligentes.";
+                headline.style.opacity = 1;
+                textSwitched = true;
+                animating = false;
+            }, 300);
+        }
+
+        function animateRevertText() {
+            animating = true;
+            headline.style.opacity = 0;
+            setTimeout(() => {
+                headline.textContent = "Inove. Floresça.";
+                headline.style.opacity = 1;
+                textSwitched = false;
+                animating = false;
+            }, 300);
+        }
+    }
+
+}
