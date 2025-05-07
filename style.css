@@ -14,11 +14,10 @@ body {
     max-width: 100vw;
     overflow-x: hidden;
     font-family: 'Inter', sans-serif;
-    overflow: hidden;
-    /* evita scroll durante o load */
+    /* overflow: hidden; */
 }
 
-#preloader {
+/* #preloader {
     position: fixed;
     top: 0;
     left: 0;
@@ -32,7 +31,6 @@ body {
     transition: opacity 0.5s ease;
   }
   
-  /* Apenas exemplo de animação de carregamento */
   .loader {
     width: 40px;
     height: 40px;
@@ -47,7 +45,7 @@ body {
       transform: rotate(360deg);
     }
   }
-  
+   */
 
 h1,
 h2 {
