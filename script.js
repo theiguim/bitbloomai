@@ -1,25 +1,18 @@
-function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    const hamburger = document.querySelector('.hamburger');
-    const isOpen = menu.classList.toggle('show');
-    hamburger.textContent = isOpen ? '✕' : '☰';
+window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+  
+    // Aplica fade-out
+    preloader.style.opacity = "0";
+  
+    // Após a transição, remove o preloader
+    setTimeout(() => {
+      preloader.style.display = "none";
+      document.body.style.overflow = "auto"; // libera scroll
+    }, 500);
+  });
+  
+  
 
-    document.body.classList.toggle('no-scroll', isOpen);
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-    const menu = document.getElementById('mobileMenu');
-    const links = menu.querySelectorAll('a');
-    const hamburger = document.querySelector('.hamburger');
-
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.remove('show');
-            hamburger.textContent = '☰';
-            document.body.classList.remove('no-scroll');
-        });
-    });
-})
 
 window.onload = () => {
     if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
@@ -63,24 +56,53 @@ window.onload = () => {
         function animateSwitchText() {
             animating = true;
             headline.style.opacity = 0;
+        
             setTimeout(() => {
                 headline.textContent = "Transformamos ideias em soluções digitais inteligentes.";
+                void headline.offsetWidth;
                 headline.style.opacity = 1;
                 textSwitched = true;
                 animating = false;
             }, 300);
         }
-
+        
         function animateRevertText() {
             animating = true;
             headline.style.opacity = 0;
+        
             setTimeout(() => {
-                headline.textContent = "Inove. Floresça.";
+                headline.textContent = "Inove. Floresça.";      
+                void headline.offsetWidth; 
                 headline.style.opacity = 1;
                 textSwitched = false;
                 animating = false;
             }, 300);
         }
+        
     }
 
 }
+
+
+function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    const isOpen = menu.classList.toggle('show');
+    hamburger.textContent = isOpen ? '✕' : '☰';
+
+    document.body.classList.toggle('no-scroll', isOpen);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const menu = document.getElementById('mobileMenu');
+    const links = menu.querySelectorAll('a');
+    const hamburger = document.querySelector('.hamburger');
+
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('show');
+            hamburger.textContent = '☰';
+            document.body.classList.remove('no-scroll');
+        });
+    });
+})
