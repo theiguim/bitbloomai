@@ -1,12 +1,12 @@
-// window.addEventListener("load", () => {
-//     const preloader = document.getElementById("preloader");
-//     preloader.style.opacity = "0";
-//     setTimeout(() => {
-//       preloader.style.display = "none";
-//       document.body.style.overflow = "auto"; 
-//     }, 500);
-//   });
-
+window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    preloader.style.opacity = "0";
+    setTimeout(() => {
+      preloader.style.display = "none";
+      document.body.style.overflow = "auto"; 
+    }, 500);
+  });
+  
 window.onload = () => {
     if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
         const headline = document.getElementById("headline");
@@ -49,7 +49,7 @@ window.onload = () => {
         function animateSwitchText() {
             animating = true;
             headline.style.opacity = 0;
-
+        
             setTimeout(() => {
                 headline.textContent = "Transformamos ideias em soluções digitais inteligentes.";
                 void headline.offsetWidth;
@@ -58,20 +58,20 @@ window.onload = () => {
                 animating = false;
             }, 300);
         }
-
+        
         function animateRevertText() {
             animating = true;
             headline.style.opacity = 0;
-
+        
             setTimeout(() => {
-                headline.textContent = "Inove. Floresça.";
-                void headline.offsetWidth;
+                headline.textContent = "Inove. Floresça.";      
+                void headline.offsetWidth; 
                 headline.style.opacity = 1;
                 textSwitched = false;
                 animating = false;
             }, 300);
         }
-
+        
     }
 
 }
