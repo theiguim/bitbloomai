@@ -222,7 +222,7 @@ button:hover {
 
 .products {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-evenly;
     padding: 20vh 0;
     position: relative;
@@ -300,14 +300,18 @@ footer {
     background-position: 10% 20%;
     height: 80dvh;
     border-radius: 0;
+   
 }
 
-#container-products>.main {}
+#container-products>.main {
+  
+}
 
 #container-products>.products {
     padding: 10vh 0;
     flex-wrap: wrap;
     gap: 10vh;
+    align-content: start;
 }
 
 
