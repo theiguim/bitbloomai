@@ -311,7 +311,6 @@ footer {
     padding: 10vh 0;
     flex-wrap: wrap;
     gap: 10vh;
-    align-content: start;
 }
 
 
@@ -354,6 +353,7 @@ footer {
         flex-direction: column;
         padding: 10vh 0;
         gap: 60px;
+        align-items: center;
     }
 
     .product-content {
