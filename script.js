@@ -99,3 +99,13 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     });
 })
+
+
+ function redirect() {
+    const isMobile = window.innerWidth <= 768;
+    const url = isMobile
+      ? "https://bitbloomai.com/apresentacao-mobile.pdf"
+      : "https://bitbloomai.com/apresentacao.pdf";
+
+    window.open(url, '_blank'); // Abre em nova aba
+  }
