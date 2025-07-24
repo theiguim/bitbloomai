@@ -314,13 +314,13 @@ footer {
 .suport-body {
     box-sizing: border-box;
     overflow: hidden;
-    height: 100vh;
+    height: calc(100dvh - 20px);
     width: 100vw;
     background-image: url(images/suport.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-   margin-top: 20px;
+    margin-top: 20px;
 }
 
 
